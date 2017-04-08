@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Memoized::Memoizer do
+describe RubyMemoized::Memoizer do
   let(:memoizer) { described_class.new(context, method) }
 
   let(:context) { klass.new }

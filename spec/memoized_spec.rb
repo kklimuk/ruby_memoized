@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe Memoized do
+describe RubyMemoized do
   let(:klass) do
     output_value = value
     method_name = method
 
     Class.new do
-      include Memoized
+      include RubyMemoized
 
       memoized
       define_method(method_name) { output_value }
@@ -31,7 +31,7 @@ describe Memoized do
   describe 'calling the memoized method' do
     subject { instance.send(method) }
 
-    let(:memoizer) { instance_double(Memoized::Memoizer) }
+    let(:memoizer) { instance_double(RubyMemoized::Memoizer) }
 
     it 'returns the value' do
       is_expected.to eq value

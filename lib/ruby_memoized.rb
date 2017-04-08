@@ -1,7 +1,7 @@
-require 'memoized/version'
-require 'memoized/memoizer'
+require 'ruby_memoized/version'
+require 'ruby_memoized/memoizer'
 
-module Memoized
+module RubyMemoized
   def self.included(klass)
     klass.extend(ClassMethods)
   end

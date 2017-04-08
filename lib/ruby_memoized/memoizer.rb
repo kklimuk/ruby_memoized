@@ -1,4 +1,4 @@
-module Memoized
+module RubyMemoized
   class Memoizer
     attr_reader :context, :method
 

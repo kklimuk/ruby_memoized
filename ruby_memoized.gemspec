@@ -1,17 +1,17 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'memoized/version'
+require 'ruby_memoized/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'ruby_memoized'
-  spec.version       = Memoized::VERSION
+  spec.version       = RubyMemoized::VERSION
   spec.authors       = ['Kirill Klimuk']
   spec.email         = ['kklimuk@gmail.com']
 
   spec.summary       = %q{Memoize method return values even with different arguments.}
   spec.description   = <<-DESC.gsub(/\s\s+/, ' ')
-Memoized makes it easy to memoize methods, even if they have arguments or blocks, by making memoization as easy 
+RubyMemoized makes it easy to memoize methods, even if they have arguments or blocks, by making memoization as easy 
 as declaring a method private.
   DESC
   spec.homepage      = 'https://github.com/kklimuk/memoized'

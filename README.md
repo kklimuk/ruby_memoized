@@ -1,6 +1,6 @@
-# Memoized
+# RubyMemoized
 
-Memoized makes it easy to memoize methods, even if they have arguments or blocks, 
+RubyMemoized makes it easy to memoize methods, even if they have arguments or blocks, 
 by making memoization as easy as declaring a method private.
 To experiment with that code, run `bin/console` for an interactive prompt.
 
@@ -74,7 +74,7 @@ We could unmemoize it by doing the following:
 
 ```ruby
 class FibonacciCalculator
-  include Memoized
+  include RubyMemoized
 
   memoized
 
@@ -92,14 +92,14 @@ class FibonacciCalculator
 end
 ```
 
-Alright, that sounds all well and good. But what if we really didn't wanna call `include Memoized` everywhere but
+Alright, that sounds all well and good. But what if we really didn't wanna call `include RubyMemoized` everywhere but
 still wanted to use memoization?
 
 We could just add it to `Object`!
 
 ```ruby
 class Object
-  include Memoized
+  include RubyMemoized
 end
 ```
 
