@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'memoized/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'memoized'
+  spec.name          = 'ruby_memoized'
   spec.version       = Memoized::VERSION
   spec.authors       = ['Kirill Klimuk']
   spec.email         = ['kklimuk@gmail.com']

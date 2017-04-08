@@ -12,7 +12,7 @@ please see [this blog post](https://medium.com/@kklimuk/memoization-in-ruby-made
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'memoized'
+gem 'ruby_memoized'
 ```
 
 And then execute:
