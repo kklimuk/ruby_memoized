@@ -7,9 +7,9 @@ module RubyMemoized
       @method = method
     end
 
-    def call(*args, &block)
-      return cache[[args, block]] if cache.has_key?([args, block])
-      cache[[args, block]] = context.send(method, *args, &block)
+    def call(*args, **kwargs, &block)
+      return cache[[args, kwargs, block]] if cache.has_key?([args, kwargs, block])
+      cache[[args, kwargs, block]] = context.send(method, *args, **kwargs, &block)
     end
 
     def cache

@@ -33,8 +33,8 @@ module RubyMemoized
 
         alias_method unmemoized_method_name, method_name
 
-        define_method method_name do |*args, &block|
-          send(memoizer_name).call(*args, &block)
+        define_method method_name do |*args, **kwargs, &block|
+          send(memoizer_name).call(*args, **kwargs, &block)
         end
 
         @memoized = true
