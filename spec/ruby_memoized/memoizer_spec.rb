@@ -9,7 +9,7 @@ describe RubyMemoized::Memoizer do
     method_name = method
 
     Class.new do
-      define_method(method_name) { |*_, &_| output_value }
+      define_method(method_name) { |*_, **_, &_| output_value }
     end
   end
 
