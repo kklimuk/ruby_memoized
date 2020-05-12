@@ -9,7 +9,9 @@ describe RubyMemoized do
       include RubyMemoized
 
       memoized
-      define_method(method_name) { output_value }
+      define_method(method_name) do |*_args, **_kwargs|
+        output_value
+      end
     end
   end
 
@@ -31,16 +33,25 @@ describe RubyMemoized do
   describe 'calling the memoized method' do
     subject { instance.send(method) }
 
-    let(:memoizer) { instance_double(RubyMemoized::Memoizer) }
-
     it 'returns the value' do
       is_expected.to eq value
     end
 
     it 'calls the memoizer for the value' do
-      expect(instance).to receive(:memoizer_for_war).and_return(memoizer)
-      expect(memoizer).to receive(:call).and_return(value)
+      expect(instance).to receive(:memoizer_for_war).and_call_original
       subject
+    end
+
+    context 'and there are args' do
+      subject { instance.send(method, *args, **kwargs) }
+
+      let(:args) { [:foo, :bar] }
+      let(:kwargs) { { foo: :bar } }
+
+      it 'caches the arguments' do
+        is_expected.to eq value
+        expect(instance.memoizer_for_war.cache).to eq([[:foo, :bar], {foo: :bar}, nil] => value)
+      end
     end
   end
 end
