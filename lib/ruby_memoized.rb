@@ -21,13 +21,15 @@ module RubyMemoized
 
         unmemoized_method_name = :"unmemoized_#{method_name}"
 
+        accepts_arguments = instance_method(method_name).parameters.any?
+
         memoizer_name = :"memoizer_for_#{method_name}"
         define_method memoizer_name do
           memoizer = instance_variable_get "@#{memoizer_name}"
           if memoizer
             memoizer
           else
-            instance_variable_set "@#{memoizer_name}", Memoizer.new(self, unmemoized_method_name)
+            instance_variable_set "@#{memoizer_name}", Memoizer.new(self, unmemoized_method_name, accepts_arguments)
           end
         end
 
