@@ -107,7 +107,7 @@ Now we make objects that use `memoized`/`unmemoized` willy-nilly.
 
 ```ruby
 class RandomThing
-  memoize
+  memoized
   def hardcore_calculation
     # TODO: Write really hardcore calculation.
   end
